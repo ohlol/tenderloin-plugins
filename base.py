@@ -322,7 +322,7 @@ class BasePlugin(TenderloinPlugin):
             return data
 
     def get_df(self):
-        cmd = "df -l"
+        cmd = "df -Pl"
         excludefs = [
             "debugfs",
             "devtmpfs",
