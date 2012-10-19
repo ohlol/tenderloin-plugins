@@ -311,7 +311,8 @@ class BasePlugin(TenderloinPlugin):
         for line in output:
             fields = line.split()
             key = r1.sub("", fields[0])
-            data[fields[5]] = {
+            mnt = fields[5].replace("/", "_")
+            data[mnt] = {
                 "total": fields[1],
                 "used": fields[2],
                 "available": fields[3],
