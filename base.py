@@ -38,7 +38,6 @@ class BasePlugin(TenderloinPlugin):
             "nice",
             "system",
             "idle",
-
             "iowait",
             "irq",
             "softirq"
