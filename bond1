@@ -1,0 +1,19 @@
+Ethernet Channel Bonding Driver: v3.5.0 (November 4, 2008)
+
+Bonding Mode: fault-tolerance (active-backup)
+Primary Slave: None
+Currently Active Slave: eth3
+MII Status: up
+MII Polling Interval (ms): 100
+Up Delay (ms): 0
+Down Delay (ms): 0
+
+Slave Interface: eth3
+MII Status: up
+Link Failure Count: 0
+Permanent HW addr: d4:be:d9:b5:89:8a
+
+Slave Interface: eth1
+MII Status: up
+Link Failure Count: 0
+Permanent HW addr: d4:be:d9:b5:89:88
