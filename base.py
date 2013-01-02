@@ -281,7 +281,7 @@ class BasePlugin(TenderloinPlugin):
             }
 
     def get_tcpudp(self):
-        self["tcpdudp"] = {}
+        self["tcpudp"] = defaultdict(dict)
         proc = Popen(["/bin/ss -tuna"], stdout=PIPE, stderr=PIPE, shell=True)
         output = proc.communicate()[0].splitlines()
         if proc.returncode == 0:
@@ -310,7 +310,8 @@ class BasePlugin(TenderloinPlugin):
         for line in output:
             fields = line.split()
             key = r1.sub("", fields[0])
-            mnt = fields[5].replace("/", "_")
+            mnt = fields[5].lstrip("/").replace("/", "_")
+            if mnt == "": mnt = "root"
             data[mnt] = {
                 "total": fields[1],
                 "used": fields[2],
@@ -319,7 +320,7 @@ class BasePlugin(TenderloinPlugin):
                 "device": key
             }
 
-            return data
+        return data
 
     def get_df(self):
         cmd = "df -Pl"
