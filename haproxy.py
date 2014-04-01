@@ -4,13 +4,10 @@ import glob
 import re
 import socket
 
-from tenderloin.plugin import TenderloinPlugin
+from tenderloinplugin import TenderloinPlugin
 
 
 class HaproxyPlugin(TenderloinPlugin):
-    def __init__(self, *args, **kwargs):
-        super(HaproxyPlugin, self).__init__(*args, **kwargs)
-
     def col2stat(self, idx):
         try:
             ret = {

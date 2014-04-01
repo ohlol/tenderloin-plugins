@@ -6,7 +6,7 @@ import re
 from collections import defaultdict
 from subprocess import Popen, PIPE
 
-from tenderloin.plugin import TenderloinPlugin
+from tenderloinplugin import TenderloinPlugin
 
 
 class BasePlugin(TenderloinPlugin):

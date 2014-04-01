@@ -3,17 +3,20 @@
 import json
 from subprocess import Popen, PIPE
 
-from tenderloin.plugin import TenderloinPlugin
+from tenderloinplugin import TenderloinPlugin
 
 
 class ChefPlugin(TenderloinPlugin):
     def get_data(self):
-        proc = Popen(["ohai"], stdout=PIPE, stderr=PIPE, shell=True)
+        proc = Popen(["ohai -l fatal"], stdout=PIPE, stderr=PIPE, shell=True)
         output = proc.communicate()[0]
         if proc.returncode != 0:
             self["ohai"] = {}
         else:
-            self["ohai"] = json.loads(output)
+            try:
+                self["ohai"] = json.loads(output)
+            except ValueError:
+                self["ohai"] = {}
 
 f = ChefPlugin("chef")
 f.loop()
