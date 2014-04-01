@@ -93,7 +93,7 @@ class BasePlugin(TenderloinPlugin):
                 "use",
                 "aveq"
             ]
-            r1 = re.compile("[a-z]d[a-z]$")
+            r1 = re.compile("^([a-z]d[a-z]|dm-[0-9]+)$")
 
             with open(to_read, "r") as f:
                 for line in f:
